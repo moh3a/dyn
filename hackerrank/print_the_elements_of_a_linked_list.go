@@ -27,13 +27,11 @@ func (singlyLinkedList *SinglyLinkedList) insertNodeIntoSinglyLinkedList(nodeDat
 		next: nil,
 		data: nodeData,
 	}
-
 	if singlyLinkedList.head == nil {
 		singlyLinkedList.head = node
 	} else {
 		singlyLinkedList.tail.next = node
 	}
-
 	singlyLinkedList.tail = node
 }
 
@@ -60,10 +58,8 @@ func printLinkedList(head *SinglyLinkedListNode) {
 
 func main() {
 	reader := bufio.NewReaderSize(os.Stdin, 1024*1024)
-
 	llistCount, err := strconv.ParseInt(readLine(reader), 10, 64)
 	checkError(err)
-
 	llist := SinglyLinkedList{}
 	for i := 0; i < int(llistCount); i++ {
 		llistItemTemp, err := strconv.ParseInt(readLine(reader), 10, 64)
@@ -71,7 +67,6 @@ func main() {
 		llistItem := int32(llistItemTemp)
 		llist.insertNodeIntoSinglyLinkedList(llistItem)
 	}
-
 	printLinkedList(llist.head)
 }
 
@@ -80,7 +75,6 @@ func readLine(reader *bufio.Reader) string {
 	if err == io.EOF {
 		return ""
 	}
-
 	return strings.TrimRight(string(str), "\r\n")
 }
 

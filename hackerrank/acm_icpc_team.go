@@ -26,7 +26,6 @@ There are a number of people who will be attending ACM-ICPC World Finals. Each o
 func acmTeam(topic []string) []int32 {
 	var max_num_subjects int32 = 0
 	var teams_count int32 = 0
-
 	for i := 0; i < len(topic)-1; i++ {
 		for j := 1; j < len(topic); j++ {
 			var current_subject_count int32 = 0
@@ -43,50 +42,36 @@ func acmTeam(topic []string) []int32 {
 			}
 		}
 	}
-
 	var result = []int32{max_num_subjects, teams_count}
 	return result
 }
 
 func main() {
 	reader := bufio.NewReaderSize(os.Stdin, 16*1024*1024)
-
 	stdout, err := os.Create(os.Getenv("OUTPUT_PATH"))
 	checkError(err)
-
 	defer stdout.Close()
-
 	writer := bufio.NewWriterSize(stdout, 16*1024*1024)
-
 	firstMultipleInput := strings.Split(strings.TrimSpace(readLine(reader)), " ")
-
 	nTemp, err := strconv.ParseInt(firstMultipleInput[0], 10, 64)
 	checkError(err)
 	n := int32(nTemp)
-
 	// mTemp, err := strconv.ParseInt(firstMultipleInput[1], 10, 64)
 	// checkError(err)
 	// m := int32(mTemp)
-
 	var topic []string
-
 	for i := 0; i < int(n); i++ {
 		topicItem := readLine(reader)
 		topic = append(topic, topicItem)
 	}
-
 	result := acmTeam(topic)
-
 	for i, resultItem := range result {
 		fmt.Fprintf(writer, "%d", resultItem)
-
 		if i != len(result)-1 {
 			fmt.Fprintf(writer, "\n")
 		}
 	}
-
 	fmt.Fprintf(writer, "\n")
-
 	writer.Flush()
 }
 
@@ -95,7 +80,6 @@ func readLine(reader *bufio.Reader) string {
 	if err == io.EOF {
 		return ""
 	}
-
 	return strings.TrimRight(string(str), "\r\n")
 }
 
